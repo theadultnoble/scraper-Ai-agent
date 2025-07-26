@@ -1,0 +1,66 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: General project rules for maintenance
+globs:
+  - src/**
+  - src/components/**/*.tsx
+  - src/components/**/*.jsx
+  - src/pages/api/**/*.ts
+  - src/api/**/*.ts
+  - .env
+  - .env.local
+  - src/config/**/*
+alwaysApply: false
+---
+
+# General Code Conventions
+
+1. Use `camelCase` for variables and functions.  
+2. Use `PascalCase` for components and types.  
+3. Prefer named exports; avoid default exports unless necessary.  
+4. Keep functions focused — no more than 1–2 responsibilities.  
+5. Always use `pnpm` for package management — avoid `npm` and `yarn`.
+
+---
+
+# Component Structure
+
+1. Use only functional components.  
+2. Export components as named exports.  
+3. One component per file.
+
+---
+
+# API Handlers
+
+1. Validate requests with `Zod`.  
+2. Keep handlers minimal — move logic to `lib/` or `services/`.  
+3. Never import frontend code into backend/API files.
+
+---
+
+# Tests and Mocks
+
+1. Add a `__tests__` or `__mocks__` folder with each module.  
+2. Use consistent naming: `*.test.ts` / `*.test.js`.  
+3. Co-locate test files unless part of a global suite.
+
+---
+
+# Import Paths
+
+1. Prefer absolute paths like `@/lib/foo`.  
+2. Refactor relative paths to absolute where possible.  
+3. Don't mix relative and absolute imports in the same file.
+
+---
+
+# Config and Environment
+
+1. Treat `.env` files as read-only — only add new keys when necessary.  
+2. Don't commit `.env`; use `.env.example` for documentation.  
+3. Only update `config.ts` for global project changes.

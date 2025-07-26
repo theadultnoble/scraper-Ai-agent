@@ -1,0 +1,38 @@
+---
+description: Guide Cursor on generating new project rule files
+globs: 
+alwaysApply: false
+---
+---
+description: Guide Cursor on generating new project rule files
+globs:
+  - .cursor/rules/**/*.mdc
+alwaysApply: false
+---
+
+# Rule Generator for Cursor project rules
+
+When asked to add or update a project rule:
+
+1. **Use `general-rule.mdc` as a formatting reference for tone, structure, and clarity.**
+2. Create a new `.mdc` file under `.cursor/rules/`, using **kebab-case** (e.g. `my-new-rule.mdc`).
+3. Include frontmatter:
+   - `description`: short summary of the rule’s purpose.
+   - `globs`: a list of glob patterns targeting files the rule applies to.
+   - `alwaysApply`: true/false.
+4. Write instructions using Markdown:
+   - Use shoulder-level headings (e.g. `# Feature Name`).
+   - Provide clear bullet or numbered lists of AI directives.
+5. Keep entries concise (<50 lines).
+6. Only include relevant fields and avoid legacy format.
+7. If asked to update an existing rule, locate the `.mdc` file and modify only that file.
+8. **Always place new rule files inside `.cursor/rules/` — never in the root directory or elsewhere.**
+
+**AI behavior:**
+
+– If user says “create a rule for X”, Cursor should:
+  - Ask for `description`, `globs`, and instructions if not provided.
+  - Generate the proper file with frontmatter and Markdown instructions.
+– If user says “update the rule for X”, Cursor should:
+  - Identify the file by related `globs` or name.
+  - Only change content inside that file.
